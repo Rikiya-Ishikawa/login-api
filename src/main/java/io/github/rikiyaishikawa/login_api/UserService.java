@@ -14,10 +14,9 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public User insert(String name, String email) {
-        User user = new User(null, name, email);
-        userMapper.insert(user);
-        return user;
+    public User insert(UserRequest userRequest) {
+        User result = userMapper.insert(userRequest);
+        return result;
     }
 
 }
