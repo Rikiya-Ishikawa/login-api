@@ -1,11 +1,11 @@
-DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS users;
 
-CREATE TABLE movies (
-  id int unsigned AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  director VARCHAR(100) NOT NULL,
-  PRIMARY KEY(id)
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+      username VARCHAR(255) NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      email VARCHAR(255) NOT NULL,
+      role VARCHAR(50) NOT NULL,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO movies (name, director) VALUES ("ショーシャンクの空に", "フランク・ダラボン");
-INSERT INTO movies (name, director) VALUES ("この世界の片隅に", "片渕須直");
