@@ -26,7 +26,7 @@ public class UserService {
             userRequest.getRole()
         );
 
-        User result = userMapper.insert(userRequest);
+        User result = userMapper.insert(user);
         return result;
     }
 
