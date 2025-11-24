@@ -12,7 +12,7 @@ import java.util.Optional;
 @Mapper
 public interface UserMapper {
 
-    @Insert("INSERT INTO users (name, email) VALUES (#{name}, #{email})")
+    @Insert("INSERT INTO users (username, password, email, role) VALUES (#{username}, #{password}, #{email), #{role}")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     User insert(UserRequest userRequest);
 
