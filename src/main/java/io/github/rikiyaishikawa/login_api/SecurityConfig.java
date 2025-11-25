@@ -24,13 +24,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+            .csrf(csrf -> csrf.disable()) // まずはCSRFを無効化して原因切り分け
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/register", "/login").permitAll()
+                .requestMatchers("/register", "/register/**").permitAll()
+                .requestMatchers("/login", "/css/**", "/js/**", "/images/**").permitAll()
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/dashboard")
+                .defaultSuccessUrl("/dashboard", true)
                 .permitAll()
             );
         return http.build();
