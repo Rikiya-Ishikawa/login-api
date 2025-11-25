@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダッシュボード</title>
 </head>
 <body>
-$END$
+    <header>
+        <h1>ダッシュボード</h1>
+    </header>
+    <main>
+        <div class="welcome-message">
+            ようこそ、[ユーザー名]さん！
+        </div>
+        <p>ここではあなたのアカウント情報や、最近の活動を確認できます。</p>
+        <p>ご利用いただきありがとうございます。</p>
+        <button class="logout-button" onclick="logout()">ログアウト</button>　<!-- TODO:未実装につき次回以降対応 -->
+    <script>
+            function logout() {
+                // ログアウト処理を実装するコード
+                alert('ログアウトします');
+                // ここでログアウト処理を追加
+                window.location.href = 'login.html'; // ログインページへのリダイレクト
+            }
+    </script>
 </body>
 </html>
