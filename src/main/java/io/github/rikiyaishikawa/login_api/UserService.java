@@ -3,9 +3,6 @@ package io.github.rikiyaishikawa.login_api;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class UserService {
 
@@ -19,15 +16,16 @@ public class UserService {
 
     public User insert(UserRequest userRequest) {
         String hashedPassword = passwordEncoder.encode(userRequest.getPassword());
+        String userRole = "USER";
         User user = new User(
             userRequest.getUsername(),
             hashedPassword,
             userRequest.getEmail(),
-            userRequest.getRole()
+            userRole
         );
 
-        User result = userMapper.insert(user);
-        return result;
+        userMapper.insert(user);
+        return user;
     }
 
 }
