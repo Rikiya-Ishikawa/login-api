@@ -8,11 +8,11 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-    @Select("SELECT id, username, password, email FROM users WHERE username = #{username}")
+    @Select("SELECT id, username, password, email FROM users WHERE username = #{username} LIMIT 1") //TODO 要同姓同名対応
     User findByUsername(String username);
 
-    @Insert("INSERT INTO users (username, password, email, role) VALUES (#{username}, #{password}, #{email}, #{role}")
+    @Insert("INSERT INTO users (username, password, email, role) VALUES (#{username}, #{password}, #{email}, #{role})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
-    User insert(User user);
+    void insert(User user);
 
 }
